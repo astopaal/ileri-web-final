@@ -26,9 +26,10 @@ const App = () => {
   ];
 
   const [selectedClass, setSelectedClass] = useState([]);
+  
 
   return (
-    <>
+    <div className="bg-[#fbc40e] min-w-screen min-h-screen">
       <div className="flex flex-col justify-center items-center">
         <BrowserRouter>
           <Routes>
@@ -45,7 +46,7 @@ const App = () => {
           </Routes>
         </BrowserRouter>
       </div>
-    </>
+    </div>
   );
 };
 

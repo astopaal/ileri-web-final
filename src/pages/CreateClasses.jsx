@@ -11,7 +11,7 @@ import {
 import FileUploader from "../components/FileUploader";
 
 const CreateClasses = (props) => {
-  const [selected, setSelected] = useState({});
+  const [students, setStudents] = useState([]);
 
   const handleChange = (event) => {
     const {
@@ -35,7 +35,7 @@ const CreateClasses = (props) => {
   };
 
   return (
-    <div className=" flex flex-col p-4 mt-20 mr ">
+    <div className=" flex flex-col p-4 mt-20 ">
       <div className="flex flex-row items-center justify-center">
       <FormControl sx={{ m: 1, width: 300 }}>
         <InputLabel id="select-class"></InputLabel>
@@ -70,8 +70,9 @@ const CreateClasses = (props) => {
       </button>
       </div>
       <div className="file-uploader-component mt-10">
-        <FileUploader />
+        <FileUploader students={students} setStudents = {setStudents} />
       </div>
+
     </div>
   );
 };
