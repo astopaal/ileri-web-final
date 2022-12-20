@@ -29,7 +29,7 @@ const App = () => {
   
 
   return (
-    <div className="bg-[#fbc40e] min-w-screen min-h-screen">
+    <div className="bg-[#f34c19] min-w-screen min-h-screen">
       <div className="flex flex-col justify-center items-center">
         <BrowserRouter>
           <Routes>
