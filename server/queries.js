@@ -11,6 +11,7 @@ const pool = new Pool({
 const saveStudent = (request, response) => {
   const students = request.body.students;
   console.log(request.body)
+  s
   //   students.map((s) => {
   //     let number = String(s.id);
   //     let name = String(s.name);
