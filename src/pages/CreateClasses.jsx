@@ -36,7 +36,7 @@ const CreateClasses = (props) => {
 
   return (
     <div className=" flex flex-col p-4 mt-20 ">
-      <div className="flex flex-row items-center justify-center">
+      <div className="bg-[#FFEBB7] flex flex-row items-center justify-center">
       <FormControl sx={{ m: 1, width: 300 }}>
         <InputLabel id="select-class"></InputLabel>
         <Select
@@ -61,7 +61,7 @@ const CreateClasses = (props) => {
       </FormControl>
       <button
         id="btn-add-class"
-        className="border-2 border-green-500 rounded w-20 h-12 ml-10 hover:bg-green-600 hover:text-white hover:border-white transition ease-linear duration-200"
+        className="border-2 border-[#AD8E70] rounded w-20 h-12 ml-10 hover:bg-[#AD8E70] hover:text-black hover:border-[#AD8E70] transition ease-linear duration-200"
         onClick={() => {
           handleAddClass();
         }}
@@ -69,7 +69,7 @@ const CreateClasses = (props) => {
         Karıştır
       </button>
       </div>
-      <div className="file-uploader-component mt-10">
+      <div className="p-5 bg-[#AD8E70] file-uploader-component mt-10">
         <FileUploader students={students} setStudents = {setStudents} />
       </div>
 

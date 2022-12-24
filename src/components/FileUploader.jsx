@@ -8,7 +8,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-
 const FileUploader = (props) => {
   const [file, setFile] = useState(); //dosyayı burada tutuyoruz
   const [reRender, setReRender] = useState(false);
@@ -48,7 +47,7 @@ const FileUploader = (props) => {
             id: item["Öğrenci No"],
             name: item[" Adı Soyadı"],
           });
-          setReRender(!reRender) 
+          setReRender(!reRender);
         });
       };
       reader.readAsArrayBuffer(file);
@@ -59,33 +58,45 @@ const FileUploader = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type="file" accept=".xls, .xlsx" onChange={handleFileChange} />
-        <button type="submit">Upload</button>
+        <div className = "bg-[#FFEBB7] p-2 flex items-center justify-center">
+          <input
+            className=""
+            type="file"
+            accept=".xls, .xlsx"
+            onChange={handleFileChange}
+          />
+          <button
+            className="border-2 border-[#AD8E70] bg-[#FFEBB7] rounded w-20 h-12 ml-10 hover:bg-[#AD8E70] hover:text-black hover:border-[#FFEBB7] transition ease-linear duration-200"
+            type="submit"
+          >
+            Yükle
+          </button>
+        </div>
       </form>
       <div className="flex mt-10 p-4">
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Öğrenci No</TableCell>
-              <TableCell align="right">Adı Soyadı</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {props.students.map((row) => (
-              <TableRow
-                key={row.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.id}
-                </TableCell>
-                <TableCell align="right">{row.name}</TableCell>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Öğrenci No</TableCell>
+                <TableCell align="right">Adı Soyadı</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {props.students.map((row) => (
+                <TableRow
+                  key={row.id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.id}
+                  </TableCell>
+                  <TableCell align="right">{row.name}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     </>
   );
