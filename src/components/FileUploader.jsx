@@ -8,12 +8,25 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
+import axios from "axios";
+
 const FileUploader = (props) => {
   const [file, setFile] = useState(); //dosyayı burada tutuyoruz
   const [reRender, setReRender] = useState(false);
 
   const handleFileChange = (event) => {
     setFile(event.target.files?.[0]);
+  };
+
+  const postStudents = async () => {
+    try {
+      await axios.post("http://localhost:8888/save-students", {
+        s: props.students,
+      });
+      console.log(props.students);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleSubmit = (event) => {
@@ -30,8 +43,6 @@ const FileUploader = (props) => {
         let dataJson = XLSX.utils.sheet_to_json(
           workbook.Sheets[workbook.SheetNames[0]]
         );
-
-        console.log(dataJson);
 
         //ilk satırı da görmek için bunu kullanırsınız :
 
@@ -51,14 +62,13 @@ const FileUploader = (props) => {
         });
       };
       reader.readAsArrayBuffer(file);
-      console.log(props.students);
     }
   };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div className = "bg-[#FFEBB7] p-2 flex items-center justify-center">
+        <div className="bg-[#FFEBB7] p-2 flex items-center justify-center">
           <input
             className=""
             type="file"
@@ -68,6 +78,7 @@ const FileUploader = (props) => {
           <button
             className="border-2 border-[#AD8E70] bg-[#FFEBB7] rounded w-20 h-12 ml-10 hover:bg-[#AD8E70] hover:text-black hover:border-[#FFEBB7] transition ease-linear duration-200"
             type="submit"
+            onClick={postStudents}
           >
             Yükle
           </button>
