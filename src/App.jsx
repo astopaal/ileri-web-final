@@ -10,7 +10,7 @@ const App = () => {
     { label: "103", kapasite: 34 },
     { label: "104", kapasite: 30 },
     { label: "105", kapasite: 40 },
-    { label: "106", kapasite: 24 },
+    { label: "106", kapasite: 29 },
     { label: "107", kapasite: 24 },
     { label: "108", kapasite: 30 },
     { label: "109", kapasite: 34 },
