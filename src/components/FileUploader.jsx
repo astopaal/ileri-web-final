@@ -4,7 +4,6 @@ import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
@@ -18,10 +17,8 @@ import axios from "axios";
 
 const FileUploader = (props) => {
   const [file, setFile] = useState(); //dosyayı burada tutuyoruz
-  const [reRender, setReRender] = useState(false);
   const [open, setOpen] = useState(false);
   const [click, setClick] = useState(false);
-  const [kabul, setKabul] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -56,18 +53,7 @@ const FileUploader = (props) => {
       console.log(err);
     }
   };
-  // useEffect(() => {
-  //   if (kabul) {
-  //     try {
-  //       for (let i = 0; i <= props.students.length; i++) {
-  //         let j = props.students[i];
-  //         postStudent(j);
-  //       }
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   }
-  // }, [kabul]);
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -107,7 +93,6 @@ const FileUploader = (props) => {
             studentNumber: item[1],
             name: item[2],
           });
-          setReRender(!reRender);
         });
 
         console.log(props.students)
@@ -128,7 +113,6 @@ const FileUploader = (props) => {
             onChange={handleFileChange}
           />
         
-
           <button
             className="border-2 border-[#AD8E70] bg-[#FFEBB7] rounded w-20 h-12 ml-10 hover:bg-[#AD8E70] hover:text-black hover:border-[#FFEBB7] transition ease-linear duration-200"
             type="submit"

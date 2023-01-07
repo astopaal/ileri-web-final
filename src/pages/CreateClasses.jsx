@@ -25,8 +25,18 @@ const CreateClasses = (props) => {
     console.log(props.selectedClass);
   };
 
+  const shuffle = (array) => {
+    //fisher-yates / durstenfeld algoritması, parametre aldığı array'i karıştırır.
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  };
+
   const handleAddClass = () => {
-    let studentCount = props.students.length
+    let studentCount = students.length;
     let selectedCapacity = 0;
 
     for (let i = 0; i < props.classes.length; i++) {
@@ -38,12 +48,10 @@ const CreateClasses = (props) => {
       }
     }
 
-    studentCount === selectedCapacity && shuffle()
+    studentCount <= selectedCapacity
+      ? (shuffle(students), console.log(students))
+      : alert("Seçilen sınıflar yeterli kapasitede değil.");
   };
-
-  const shuffle = () => {
-    
-  }
 
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
