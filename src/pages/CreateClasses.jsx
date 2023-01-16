@@ -76,7 +76,9 @@ const CreateClasses = (props) => {
   };
 
   const handleAddClass = (e) => {
-    e.preventDefault();
+    if (e && e.preventDefault) {
+      e.preventDefault();
+    }
     let studentCount = copy.length;
     let selectedCapacity = 0;
 
@@ -318,7 +320,7 @@ const CreateClasses = (props) => {
                       <div className="flex">
                         <img
                           className="w-[35%]"
-                          src="https://img1.pngindir.com/20180410/qpw/kisspng-computer-icons-student-education-college-avatar-5acd2e154a2427.7760197615233961173037.jpg"
+                          src="https://upload.wikimedia.org/wikipedia/tr/e/e7/K%C4%B1rklareli_%C3%9Cniversitesi_logosu.jpg"
                           alt="avatar"
                         />
                         {studentDataById[0] != null && (
